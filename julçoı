@@ -1,0 +1,19 @@
+import requests
+
+def get_name(pokemon_id):
+    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
+    response = requests.get(url)
+    data = response.json()
+    return data["name"]
+
+def get_img(pokemon_id):
+    url = f"https://pokeapi.co/api/v2/pokemon/{pokemon_id}"
+    response = requests.get(url)
+    data = response.json()
+
+    return data["sprites"]["other"]["official-artwork"]["front_default"]
+
+
+pokemon_id = 1
+print("Ad:", get_name(pokemon_id))
+print("Görsel URL:", get_img(pokemon_id))
